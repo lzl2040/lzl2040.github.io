@@ -2,24 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lzl2040.github.io/pictures/index.html</loc>
-    
-    <lastmod>2022-01-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-01-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lzl2040.github.io/2022/01/27/matlab%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2022-01-28</lastmod>
@@ -47,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/tags/index.html</loc>
+    <loc>https://lzl2040.github.io/pictures/index.html</loc>
     
     <lastmod>2022-01-28</lastmod>
     
@@ -56,9 +38,18 @@
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/2022/01/27/hello-world/</loc>
+    <loc>https://lzl2040.github.io/categories/index.html</loc>
     
-    <lastmod>2022-01-27</lastmod>
+    <lastmod>2022-01-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-01-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
