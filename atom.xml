@@ -6,7 +6,7 @@
   <link href="https://lzl2040.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzl2040.github.io/"/>
-  <updated>2022-01-28T04:56:32.523Z</updated>
+  <updated>2022-02-01T09:25:37.578Z</updated>
   <id>https://lzl2040.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java-BigInteger使用</title>
+    <link href="https://lzl2040.github.io/2022/02/01/Java-BigInteger%E4%BD%BF%E7%94%A8/"/>
+    <id>https://lzl2040.github.io/2022/02/01/Java-BigInteger%E4%BD%BF%E7%94%A8/</id>
+    <published>2022-02-01T09:11:45.000Z</published>
+    <updated>2022-02-01T09:25:37.578Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>当使用的数据范围要超过long时,我们可以使用BigInteger来表示这些超范围的整数。</p><p>事实上，它是使用一个int数组来模拟一个非常大的整数。</p><h2 id="定义方式"><a href="#定义方式" class="headerlink" title="定义方式"></a>定义方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigInteger num = <span class="keyword">new</span> BigInteger(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">BigInteger b=BigInteger.valueOf(<span class="number">123</span>);</span><br></pre></td></tr></table></figure><h2 id="运算方法"><a href="#运算方法" class="headerlink" title="运算方法"></a>运算方法</h2><p>BigInteger使用add,subtract,multiply,divide这些方法来实现加减乘除。</p><p>如:a = a + b表示</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a.add(b);</span><br></pre></td></tr></table></figure><h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><p>比较耗时，如果是做算法类的竞赛容易超时。</p><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>你一定听说过这个故事。国王对发明国际象棋的大臣很佩服，问他要什么报酬，大臣说：请在第 1 个棋盘格放 1 粒麦子，在第 2 个棋盘格放 2 粒麦子，在第 3 个棋盘格放 4 粒麦子，在第 4 个棋盘格放 8 粒麦子，……后一格的数字是前一格的两倍，直到放完所有棋盘格（国际象棋共有 64 格）。</p><p>国王以为他只是想要一袋麦子而已，哈哈大笑。</p><p>当时的条件下无法准确计算，但估算结果令人吃惊：即使全世界都铺满麦子也不够用！</p><p>请你借助计算机准确地计算，到底需要多少粒麦子。</p><p>具体可参照<a href="https://www.lanqiao.cn/problems/739/learning/?accessToken=eyJhbGciOiJIUzI1NiIsImtpZCI6ImRlZmF1bHQiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJhY2Nlc3NfcmVzb3VyY2UiLCJleHAiOjE2NDM3MDM5MjQsImciOiJKcEs2VFFxNndjS1dXM1QzIiwiaWF0IjoxNjQzNzAzNjI0LCJ1c2VySWQiOjY2NTg1MDQ4fQ.ZlnQ9EXhO-IpgWEM84DlpoHxV6z-G50JZqWcRoDz5NM">蓝桥杯题目</a></p><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="comment">// 1:无需package</span></span><br><span class="line"><span class="comment">// 2: 类名必须Main, 不可修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        BigInteger res = <span class="keyword">new</span> BigInteger(<span class="number">0</span>+<span class="string">&quot;&quot;</span>);</span><br><span class="line">        BigInteger mid = <span class="keyword">new</span> BigInteger(<span class="number">1</span>+<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">64</span>;i ++)&#123;</span><br><span class="line">          res = res.add(mid);</span><br><span class="line">          mid = mid.multiply(<span class="keyword">new</span> BigInteger(<span class="string">&quot;2&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(res);</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;使用说明&quot;&gt;&lt;a href=&quot;#使用说明&quot; class=&quot;headerlink&quot; title=&quot;使用说明&quot;&gt;&lt;/a&gt;使用说明&lt;/h2&gt;&lt;p&gt;当使用的数据范围要超过long时,我们可以使用BigInteger来表示这些超范围的整数。&lt;/p&gt;
+&lt;p&gt;事实上，它是使用一</summary>
+      
+    
+    
+    
+    
+    <category term="java" scheme="https://lzl2040.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>matlab编程笔记</title>
