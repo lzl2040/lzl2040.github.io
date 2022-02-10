@@ -83,13 +83,6 @@
 
   
   <url>
-    <loc>https://lzl2040.github.io/tags/hexo/</loc>
-    <lastmod>2022-02-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lzl2040.github.io/tags/matlab/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -97,7 +90,7 @@
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/tags/java/</loc>
+    <loc>https://lzl2040.github.io/tags/hexo/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -105,6 +98,13 @@
   
   <url>
     <loc>https://lzl2040.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-02-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/tags/java/</loc>
     <lastmod>2022-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
