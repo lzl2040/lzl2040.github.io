@@ -6,7 +6,7 @@
   <link href="https://lzl2040.github.io/atom.xml" rel="self"/>
   
   <link href="https://lzl2040.github.io/"/>
-  <updated>2022-09-14T14:31:17.324Z</updated>
+  <updated>2022-09-15T13:14:41.305Z</updated>
   <id>https://lzl2040.github.io/</id>
   
   <author>
@@ -21,8 +21,15 @@
     <link href="https://lzl2040.github.io/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/"/>
     <id>https://lzl2040.github.io/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/</id>
     <published>2022-09-14T14:18:12.000Z</published>
-    <updated>2022-09-14T14:31:17.324Z</updated>
+    <updated>2022-09-15T13:14:41.305Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="论文笔记-RDE-VOS论文细节记录"><a href="#论文笔记-RDE-VOS论文细节记录" class="headerlink" title="论文笔记-RDE-VOS论文细节记录"></a>论文笔记-RDE-VOS论文细节记录</h1><h2 id="1-用于decoder部分的特征"><a href="#1-用于decoder部分的特征" class="headerlink" title="1.用于decoder部分的特征"></a>1.用于decoder部分的特征</h2><h3 id="memory-bank中的key"><a href="#memory-bank中的key" class="headerlink" title="memory bank中的key"></a>memory bank中的key</h3><p>大小：(Ck,H/16,W/16)，H,W为图片原始的高度和宽度</p><p>来源：由之前帧的图像经过ResNet50网络结构(使用的是res4的特征)，然后经过一个卷积网络映射得到</p><h3 id="memory-bank中的value"><a href="#memory-bank中的value" class="headerlink" title="memory bank中的value"></a>memory bank中的value</h3><p>大小：(Cv,H/16,W/16)，H,W为图片原始的高度和宽度</p><p>来源：由将之前帧的图像mask和image进行拼接，然后经过ResNet18网络结构获得(使用的是res4的特征)，然后与memory  bank中的key融合，融合办法如下：</p><ul><li>拼接key和value特征</li><li>将拼接得到的特征输入到两个ResBlocks网络[1]，一个CBAM块[2]</li><li>最终得到真正的value</li></ul><h3 id="来自查询帧的特征"><a href="#来自查询帧的特征" class="headerlink" title="来自查询帧的特征"></a>来自查询帧的特征</h3><p>（1）查询帧的key特征</p><p>大小：(C,H/16,W/16)，H,W为图片原始的高度和宽度</p><p>来源：查询帧的图像经过ResNet50网络结构(使用的是res4的特征)，然后经过一个卷积网络映射得到</p><p>（2）查询帧的value特征</p><p>大小：(C,H/16,W/16)，H,W为图片原始的高度和宽度</p><p>来源：查询帧的图像经过ResNet50网络结构(使用的是res4的特征)，然后经过一个卷积网络压缩通道维度（由1024变为512），由此得到最终结果</p><p>（3）查询帧经过ResNet网络得到的特征（skip connection）</p><p>有两个，来自经过ResNet50网络得到的stride=8和stride=4的特征</p><p><strong>注意</strong>：它的计算其实就是通过key encoder获得，首先获得特征，然后将这个特征再次进行映射就得到了key</p><h2 id="2-memory-bank和query-frame之间的affinity计算"><a href="#2-memory-bank和query-frame之间的affinity计算" class="headerlink" title="2.memory bank和query frame之间的affinity计算"></a>2.memory bank和query frame之间的affinity计算</h2><p>方法：L2 Similarity Computation</p><p>输入：来自memory bank中的key(维度：Ck * THW)，来自查询帧的key(维度：Cv * HW)</p><p>过程：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = mk.<span class="built_in">pow</span>(<span class="number">2</span>).<span class="built_in">sum</span>(<span class="number">1</span>).unsqueeze(<span class="number">2</span>)</span><br><span class="line">b = <span class="number">2</span> * (mk.transpose(<span class="number">1</span>, <span class="number">2</span>) @ qk)</span><br><span class="line"><span class="comment"># this term will be cancelled out in the softmax</span></span><br><span class="line"></span><br><span class="line">affinity = (-a+b) / math.sqrt(CK)   <span class="comment"># B, THW, HW</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># softmax operation; aligned the evaluation style</span></span><br><span class="line">maxes = torch.<span class="built_in">max</span>(affinity, dim=<span class="number">1</span>, keepdim=<span class="literal">True</span>)[<span class="number">0</span>]</span><br><span class="line">x_exp = torch.exp(affinity - maxes)</span><br><span class="line">x_exp_sum = torch.<span class="built_in">sum</span>(x_exp, dim=<span class="number">1</span>, keepdim=<span class="literal">True</span>)</span><br><span class="line">affinity = x_exp / x_exp_sum</span><br></pre></td></tr></table></figure><h2 id="3-readout过程"><a href="#3-readout过程" class="headerlink" title="3.readout过程"></a>3.readout过程</h2><p>这是一个从memory bank中读出有用信息的算法。</p><p>输入：来自memory bank中的key(维度：Ck * THW)和value，来自查询帧的key(维度：Cv * HW)和value</p><p>过程：</p><ul><li>计算memory bank的key和查询帧的key的相似度(affinity)</li><li>相似度和memory bank的key相乘，得到的输出维度变为B * Cv * H * W</li><li>将上一步得到的输出与查询帧的value进行拼接（在通道维度上），这就是最后的readout特征</li></ul><h2 id="4-目前的疑惑"><a href="#4-目前的疑惑" class="headerlink" title="4.目前的疑惑"></a>4.目前的疑惑</h2><p>logits就是上采样得到的，用于计算BCE损失的，应该是包含前景与背景</p><p>prob就是预测得到的最终mask，原本的代码中没有是1的</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;论文笔记-RDE-VOS论文细节记录&quot;&gt;&lt;a href=&quot;#论文笔记-RDE-VOS论文细节记录&quot; class=&quot;headerlink&quot; title=&quot;论文笔记-RDE-VOS论文细节记录&quot;&gt;&lt;/a&gt;论文笔记-RDE-VOS论文细节记录&lt;/h1&gt;&lt;h2 id=&quot;1</summary>
+      
     
     
     
