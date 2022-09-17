@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation | Fighting</title><meta name="keywords" content="Paper Note"><meta name="author" content="Yxmlzl"><meta name="copyright" content="Yxmlzl"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation代码:https:&#x2F;&#x2F;github.com&#x2F;scutpaul&#x2F;DANet Abstract本文解决了 Few-Shot Video Object Segmentation (FSVOS) 的任务，即将查询视频中的对象分割为在几个标记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation">
+<meta property="og:url" content="https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/index.html">
+<meta property="og:site_name" content="Fighting">
+<meta property="og:description" content="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation代码:https:&#x2F;&#x2F;github.com&#x2F;scutpaul&#x2F;DANet Abstract本文解决了 Few-Shot Video Object Segmentation (FSVOS) 的任务，即将查询视频中的对象分割为在几个标记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-09-16T13:05:14.000Z">
+<meta property="article:modified_time" content="2022-09-17T01:22:58.830Z">
+<meta property="article:author" content="Yxmlzl">
+<meta property="article:tag" content="Paper Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-17 09:22:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Fighting" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fighting</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 休闲</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li><li><a class="site-page child" href="/pictures/"><i class="fa-fw fas fa-images"></i><span> 图片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-16T13:05:14.000Z" title="发表于 2022-09-16 21:05:14">2022-09-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-17T01:22:58.830Z" title="更新于 2022-09-17 09:22:58">2022-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CVPR/">CVPR</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CVPR/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="论文阅读-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation"><a href="#论文阅读-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation" class="headerlink" title="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation"></a>论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation</h1><p>代码:<a target="_blank" rel="noopener" href="https://github.com/scutpaul/DANet">https://github.com/scutpaul/DANet</a></p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>本文解决了 Few-Shot Video Object Segmentation (FSVOS) 的任务，即将查询视频中的对象分割为在几个标记的支持图像中指定的特定类别。关键是对查询视频和支持图像之间的关系进行建模，以传播对象信息。这是一个多对多的问题，通常依赖于计算密集型的full-rank注意力。在本文中，我们提出了一种新颖的Domain Agent Network (DAN)，将full-rank注意力分解为两个较小的注意力。我们将查询视频的单帧视为域代理，在支持图像和查询视频之间架起桥梁。我们的 DAN 允许线性空间和时间复杂度，而不是原始的二次形式，而不会损失性能。此外，我们引入了一种将元学习与在线学习相结合的学习策略，以进一步提高分割精度。我们在 Youtube-VIS 数据集上构建 FSVOS 基准并进行实验，以证明我们的方法在计算成本和准确性方面都优于baseline，实现了最先进的性能。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="VOS分类"><a href="#VOS分类" class="headerlink" title="VOS分类"></a>VOS分类</h3><p>（1）unsupervised VOS：segments primary objects in the videos without any human intervention</p>
+<p>（2）semi-supervised VOS：gives the ground truth segmentation of the first frame and propagates the labeled object information into subsequent frames.</p>
+<p>本文与上面两种的对比：</p>
+<img src="https://s1.ax1x.com/2022/09/16/xSYiRO.png" alt="comparison2" style="zoom:67%;" />
+
+<h3 id="FSVOS定义"><a href="#FSVOS定义" class="headerlink" title="FSVOS定义"></a>FSVOS定义</h3><p>FSVOS aims to segment new object classes across query videos with only a few annotated support images</p>
+<p>FSVOS 旨在仅使用少量带注释的支持图像在查询视频中分割新的对象类</p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><p>Constructing correlation among support images and query videos is a many-to-many problem and directly using these full-rank attentions in FSVOS suffers from expensive computational cost</p>
+<h3 id="过去的解决办法"><a href="#过去的解决办法" class="headerlink" title="过去的解决办法"></a>过去的解决办法</h3><ul>
+<li>The prototypebased  methods，缺点：loses structural information of the support images.</li>
+<li>The attentionbased methods，缺点：the computational complexity grows exponentially as the number of input images grows.</li>
+</ul>
+<p>它们与本文的方法对比：</p>
+<img src="https://s1.ax1x.com/2022/09/16/xSYCi6.png" alt="comparison1" style="zoom:67%;" />
+
+<h3 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h3><p>We hypothesize that the original attention matrix can be replaced with a product of two smaller attention matrices through an agent t.</p>
+<h3 id="论文的解决办法"><a href="#论文的解决办法" class="headerlink" title="论文的解决办法"></a>论文的解决办法</h3><ul>
+<li>we propose a novel Domain Agent Network (DAN),which treats a single frame of the query video as the agent for this video domain.</li>
+<li>we propose a learning strategy for FSVOS by combining meta-learning with online learning</li>
+</ul>
+<h3 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h3><ul>
+<li>We delve into the conventional many-to-many attention and prove that the original attention matrix can be replaced by the product of two smaller attention matrices bridged by an agent.</li>
+<li>We propose a novel domain agent network based on theoretical support, balancing the accuracy, computational burden, and speed</li>
+<li>We present a learning strategy that combines metalearning and online learning to improve the generalization ability of segmentation and category-specific feature representations.</li>
+</ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><p>（1）Video Object Segmentation</p>
+<p>（2）Few-shot Semantic Segmentation</p>
+<p>（3）Many-to-many Attention</p>
+<p>（4）Online Learning</p>
+<h2 id="Theoretical-Support-for-the-Hypothesis"><a href="#Theoretical-Support-for-the-Hypothesis" class="headerlink" title="Theoretical Support for the Hypothesis"></a>Theoretical Support for the Hypothesis</h2><p><strong>前提知识：</strong></p>
+<p>dot-thenexponentiate function：</p>
+<img src="https://s1.ax1x.com/2022/09/16/xSY8yQ.png" alt="f1" style="zoom: 67%;" />
+
+<p>a positive random feature mapping function can be used to approximate the softmax-kernel function without bias：</p>
+<img src="https://s1.ax1x.com/2022/09/16/xSY1SS.png" style="zoom:67%;" />
+
+<p>decompose the full-rank attention matrix into the following form：</p>
+<img src="https://s1.ax1x.com/2022/09/16/xSY3Qg.png" alt="f3" style="zoom:67%;" />
+
+<p><strong>推导过程：</strong></p>
+<p>approximate the two attention matrices:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0T81.png" alt="formula4" style="zoom:67%;" />
+
+<p>the Eq:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS07gx.png" alt="formula9" style="zoom:67%;" />
+
+<p>restate the replaced matrix in Eq to the following:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0559.png" alt="formula5" style="zoom:67%;" />
+
+<p>extract the middle multiplication part:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0oCR.png" alt="formula6" style="zoom:67%;" />
+
+<p>get the replaced attention matrix as follows:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0jVe.png" alt="formula7" style="zoom:67%;" />
+
+<img src="https://s1.ax1x.com/2022/09/17/xS0ObD.png" alt="formula8" style="zoom:67%;" />
+
+<h2 id="Domain-Agent-Network"><a href="#Domain-Agent-Network" class="headerlink" title="Domain Agent Network"></a>Domain Agent Network</h2><h3 id="Method-Overview"><a href="#Method-Overview" class="headerlink" title="Method Overview"></a>Method Overview</h3><p><strong>overall network:</strong></p>
+<img src="https://s1.ax1x.com/2022/09/16/xSYPJK.png" alt="architecture" style="zoom:80%;" />
+
+<p><strong>components</strong>:</p>
+<ul>
+<li>an encoder network</li>
+<li>a domain agent attention module</li>
+<li>a decoder network</li>
+</ul>
+<h3 id="Encoder-and-Decoder"><a href="#Encoder-and-Decoder" class="headerlink" title="Encoder and Decoder"></a>Encoder and Decoder</h3><p><strong>Encoder</strong>:We use a Siamese-architecture for designing encoders that share the same weight.</p>
+<p>encoder backbone:ResNet-50 without the block-4</p>
+<p>output features:we compute features for foreground objects by weighting the support features with the ground truth masks</p>
+<p><strong>Decoder</strong>:based on the upsample operation and the skip-connection</p>
+<p>decoder input:we concatenate the feature values of the query set vQ with the attention features vA,denoted as <strong>f a</strong>.</p>
+<h3 id="Domain-Agent-Attention-Module"><a href="#Domain-Agent-Attention-Module" class="headerlink" title="Domain Agent Attention Module"></a>Domain Agent Attention Module</h3><p><strong>agent选取：</strong>we use the middle frame as the agent for a video to guarantee the learned channel-wise attention is informative</p>
+<p><strong>过程：</strong></p>
+<p>（1）the query features are mapping to queries qQ and key-value pairs kQ - vQ through a single convolutional layer.</p>
+<p>So are the support features.The dimensions are as follows:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xSB92t.png" alt="figure3" style="zoom:67%;" />
+
+<p>（2）calculate the attention matrix AQt and AtS</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0vUH.png" alt="formula8" style="zoom:67%;" />
+
+<p>（3）obtain the attention feature vA</p>
+<img src="https://s1.ax1x.com/2022/09/17/xS0LDO.png" alt="formula9" style="zoom:67%;" />
+
+<p>comparison between conventional full-rank attention and our domain agent attention:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xSBiKf.png" alt="figure6" style="zoom:67%;" />
+
+<h3 id="Learning-Strategy"><a href="#Learning-Strategy" class="headerlink" title="Learning Strategy"></a>Learning Strategy</h3><p>During the training phase, we use meta-learning to learn generic semantics-aware object segmentation.</p>
+<p>During the testing phase,to better adapt features into the domain of the new class, we propose to use the online learning</p>
+<p><strong>comparison:</strong></p>
+<img src="https://s1.ax1x.com/2022/09/17/xSBCxP.png" alt="figure4" style="zoom:67%;" />
+
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>Comparisons to existing applicable methods:</p>
+<img src="https://s1.ax1x.com/2022/09/17/xSBZ5j.png" alt="table1" style="zoom:67%;" />
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this paper, we propose a novel domain agent network for solving the few-shot video object segmentation task.The key idea is to decompose the typical manyto-many attention matrix into the product of two smaller ones through an agent.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Yxmlzl</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/">https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://lzl2040.github.io" target="_blank">Fighting</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Paper-Note/">Paper Note</a></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/"><img class="next-cover" src="https://s1.ax1x.com/2022/09/16/vzcrB6.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/" title="论文笔记-RDE-VOS论文细节记录"><img class="cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-14</div><div class="title">论文笔记-RDE-VOS论文细节记录</div></div></a></div><div><a href="/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/" title="论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation"><img class="cover" src="https://s1.ax1x.com/2022/09/16/vzcrB6.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-15</div><div class="title">论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yxmlzl</div><div class="author-info__description">逆袭!</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lzl2040"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lzl2040" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=jL68uLy9u725tLrM-f2i7_Ph" target="_blank" title="Email"><i class="fas fa-envelope-square"></i></a><a class="social-icon" href="https://user.qzone.qq.com/2040171586" target="_blank" title="QQ"><i class="fab fa-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation"><span class="toc-number">1.</span> <span class="toc-text">论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">1.2.</span> <span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VOS%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">VOS分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FSVOS%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">FSVOS定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.3.</span> <span class="toc-text">存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E5%8E%BB%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">1.2.4.</span> <span class="toc-text">过去的解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E6%96%AD"><span class="toc-number">1.2.5.</span> <span class="toc-text">推断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-number">1.2.6.</span> <span class="toc-text">论文的解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%A1%E7%8C%AE"><span class="toc-number">1.2.7.</span> <span class="toc-text">贡献</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Related-Work"><span class="toc-number">1.3.</span> <span class="toc-text">Related Work</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Theoretical-Support-for-the-Hypothesis"><span class="toc-number">1.4.</span> <span class="toc-text">Theoretical Support for the Hypothesis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Domain-Agent-Network"><span class="toc-number">1.5.</span> <span class="toc-text">Domain Agent Network</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Method-Overview"><span class="toc-number">1.5.1.</span> <span class="toc-text">Method Overview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder-and-Decoder"><span class="toc-number">1.5.2.</span> <span class="toc-text">Encoder and Decoder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Domain-Agent-Attention-Module"><span class="toc-number">1.5.3.</span> <span class="toc-text">Domain Agent Attention Module</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Learning-Strategy"><span class="toc-number">1.5.4.</span> <span class="toc-text">Learning Strategy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Experiment"><span class="toc-number">1.6.</span> <span class="toc-text">Experiment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-number">1.7.</span> <span class="toc-text">Conclusion</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/" title="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation"/></a><div class="content"><a class="title" href="/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/" title="论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation">论文阅读-Delving Deep into Many-to-many Attention for Few-shot Video Object Segmentation Segmentation</a><time datetime="2022-09-16T13:05:14.000Z" title="发表于 2022-09-16 21:05:14">2022-09-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/" title="论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation"><img src="https://s1.ax1x.com/2022/09/16/vzcrB6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation"/></a><div class="content"><a class="title" href="/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/" title="论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation">论文阅读-Prototype Mixture Models for Few-shot Semantic Segmentation</a><time datetime="2022-09-15T13:14:12.000Z" title="发表于 2022-09-15 21:14:12">2022-09-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/" title="论文笔记-RDE-VOS论文细节记录"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="论文笔记-RDE-VOS论文细节记录"/></a><div class="content"><a class="title" href="/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/" title="论文笔记-RDE-VOS论文细节记录">论文笔记-RDE-VOS论文细节记录</a><time datetime="2022-09-14T14:18:12.000Z" title="发表于 2022-09-14 22:18:12">2022-09-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/30/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="算法学习笔记-动态规划"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法学习笔记-动态规划"/></a><div class="content"><a class="title" href="/2022/03/30/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="算法学习笔记-动态规划">算法学习笔记-动态规划</a><time datetime="2022-03-30T15:26:06.000Z" title="发表于 2022-03-30 23:26:06">2022-03-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/27/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BF%AB%E9%80%9F%E5%B9%82/" title="算法学习笔记-快速幂"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法学习笔记-快速幂"/></a><div class="content"><a class="title" href="/2022/03/27/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%BF%AB%E9%80%9F%E5%B9%82/" title="算法学习笔记-快速幂">算法学习笔记-快速幂</a><time datetime="2022-03-27T13:18:52.000Z" title="发表于 2022-03-27 21:18:52">2022-03-27</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Yxmlzl</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'Cx0xN2xvx8v9196mnBEfe4ES-gzGzoHsz',
+      appKey: 't6sfkpiURDPNb8wrz8omD4X1',
+      avatar: 'monsterid',
+      serverURLs: 'https://cx0xn2xv.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
