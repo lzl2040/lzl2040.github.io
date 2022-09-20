@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Modular-Interactive-Video-Object-Segmentation-Interaction-to-Mask-Propagation-and-Difference-Aware-Fusion/</loc>
+    <loc>https://lzl2040.github.io/2022/09/20/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-PANet-Few-Shot-Image-Semantic-Segmentation-with-Prototype-Alignment/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/Gallery/index.html</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/categories/index.html</loc>
     
     <lastmod>2022-09-20</lastmod>
     
@@ -12,6 +30,15 @@
   
   <url>
     <loc>https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Modular-Interactive-Video-Object-Segmentation-Interaction-to-Mask-Propagation-and-Difference-Aware-Fusion/</loc>
     
     <lastmod>2022-09-20</lastmod>
     
@@ -111,15 +138,6 @@
   
   <url>
     <loc>https://lzl2040.github.io/pictures/index.html</loc>
-    
-    <lastmod>2022-01-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/categories/index.html</loc>
     
     <lastmod>2022-01-28</lastmod>
     
@@ -239,14 +257,14 @@
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/categories/CVPR/</loc>
+    <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/CVPR/</loc>
     <lastmod>2022-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/categories/CVPR/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
+    <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICCV/</loc>
     <lastmod>2022-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
