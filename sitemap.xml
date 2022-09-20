@@ -2,6 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lzl2040.github.io/2022/09/20/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-PANet-Few-Shot-Image-Semantic-Segmentation-with-Prototype-Alignment/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Modular-Interactive-Video-Object-Segmentation-Interaction-to-Mask-Propagation-and-Difference-Aware-Fusion/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E9%AB%98%E7%BA%A7%E8%AF%8D%E6%B1%87-%E5%8F%A5%E5%BC%8F/</loc>
+    
+    <lastmod>2022-09-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lzl2040.github.io/about/index.html</loc>
     
     <lastmod>2022-09-20</lastmod>
@@ -29,34 +74,7 @@
   </url>
   
   <url>
-    <loc>https://lzl2040.github.io/2022/09/20/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-PANet-Few-Shot-Image-Semantic-Segmentation-with-Prototype-Alignment/</loc>
-    
-    <lastmod>2022-09-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://lzl2040.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-09-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/2022/09/16/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Delving-Deep-into-Many-to-many-Attention-for-Few-shot-Video-Object-Segmentation/</loc>
-    
-    <lastmod>2022-09-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Modular-Interactive-Video-Object-Segmentation-Interaction-to-Mask-Propagation-and-Difference-Aware-Fusion/</loc>
     
     <lastmod>2022-09-20</lastmod>
     
@@ -68,24 +86,6 @@
     <loc>https://lzl2040.github.io/2022/09/14/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-RDE-VOS%E8%AE%BA%E6%96%87%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/</loc>
     
     <lastmod>2022-09-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/2022/09/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-%E8%AE%BA%E6%96%87%E5%B8%B8%E7%94%A8%E9%AB%98%E7%BA%A7%E8%AF%8D%E6%B1%87-%E5%8F%A5%E5%BC%8F/</loc>
-    
-    <lastmod>2022-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://lzl2040.github.io/2022/09/15/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Prototype-Mixture-Models-for-Few-shot-Semantic-Segmentation/</loc>
-    
-    <lastmod>2022-09-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -274,6 +274,27 @@
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICCV/</loc>
+    <lastmod>2022-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/CVPR/2021/</loc>
+    <lastmod>2022-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ECCV/2020/</loc>
+    <lastmod>2022-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICCV/2019/</loc>
     <lastmod>2022-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
