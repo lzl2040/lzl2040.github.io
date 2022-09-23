@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lzl2040.github.io/2022/09/22/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Learning%20Position%20and%20Target%20Consistency%20for%20Memory-based%20Video%20Object/</loc>
+    
+    <lastmod>2022-09-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lzl2040.github.io/2022/09/21/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-Efficient%20Regional%20Memory%20Network%20for%20Video%20Object%20Segmentation/</loc>
     
     <lastmod>2022-09-22</lastmod>
@@ -175,7 +184,7 @@
 
   <url>
     <loc>https://lzl2040.github.io/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -183,56 +192,56 @@
   
   <url>
     <loc>https://lzl2040.github.io/tags/matlab/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/MCM/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/hexo/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/Paper-Note/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/VOS/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/tags/FSS/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -241,84 +250,84 @@
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E6%80%BB%E7%BB%93/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ECCV/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/CVPR/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICCV/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/CVPR/2021/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ECCV/2020/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://lzl2040.github.io/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/ICCV/2019/</loc>
-    <lastmod>2022-09-22</lastmod>
+    <lastmod>2022-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
